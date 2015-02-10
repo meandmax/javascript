@@ -791,7 +791,7 @@ forked from: (airbnb Styleguide)[https://github.com/airbnb/javascript]
     ```javascript
     // bad
     if (foo) {
-      return bar;
+        return bar;
     }
     return baz;
 
