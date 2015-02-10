@@ -1,9 +1,8 @@
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+# JavaScript Style Guide
 
-# Airbnb JavaScript Style Guide() {
+*A mostly reasonable approach to JavaScript inspired by the official airbnb JavaScript Style Guide*
 
-*A mostly reasonable approach to JavaScript*
-
+forked from: (airbnb Styleguide)[https://github.com/airbnb/javascript] 
 
 ## Table of Contents
 
@@ -55,6 +54,7 @@
 
     bar = 9;
 
+
     console.log(foo, bar); // => 1, 9
     ```
   - **Complex**: When you access a complex type you work on a reference to its value.
@@ -91,14 +91,14 @@
     ```javascript
     // bad
     var superman = {
-      default: { clark: 'kent' },
-      private: true
+        default: { clark: 'kent' },
+        private: true
     };
 
     // good
     var superman = {
-      defaults: { clark: 'kent' },
-      hidden: true
+        defaults: { clark: 'kent' },
+        hidden: true
     };
     ```
 
@@ -107,17 +107,17 @@
     ```javascript
     // bad
     var superman = {
-      class: 'alien'
+        class: 'alien'
     };
 
     // bad
     var superman = {
-      klass: 'alien'
+        klass: 'alien'
     };
 
     // good
     var superman = {
-      type: 'alien'
+        type: 'alien'
     };
     ```
 
@@ -140,7 +140,6 @@
     ```javascript
     var someStack = [];
 
-
     // bad
     someStack[someStack.length] = 'abracadabra';
 
@@ -157,7 +156,7 @@
 
     // bad
     for (i = 0; i < len; i++) {
-      itemsCopy[i] = items[i];
+        itemsCopy[i] = items[i];
     }
 
     // good
@@ -167,9 +166,9 @@
   - To convert an array-like object to an array, use Array#slice.
 
     ```javascript
-    function trigger() {
-      var args = Array.prototype.slice.call(arguments);
-      ...
+    function trigger () {
+        var args = Array.prototype.slice.call(arguments);
+        ...
     }
     ```
 
@@ -222,38 +221,38 @@
     var i;
 
     messages = [{
-      state: 'success',
-      message: 'This one worked.'
+        state: 'success',
+        message: 'This one worked.'
     }, {
-      state: 'success',
-      message: 'This one worked as well.'
+        state: 'success',
+        message: 'This one worked as well.'
     }, {
-      state: 'error',
-      message: 'This one did not work.'
+        state: 'error',
+        message: 'This one did not work.'
     }];
 
     length = messages.length;
 
     // bad
-    function inbox(messages) {
-      items = '<ul>';
+    function inbox (messages) {
+        items = '<ul>';
 
-      for (i = 0; i < length; i++) {
+        for (i = 0; i < length; i++) {
         items += '<li>' + messages[i].message + '</li>';
-      }
+        }
 
-      return items + '</ul>';
+        return items + '</ul>';
     }
 
     // good
-    function inbox(messages) {
-      items = [];
+    function inbox (messages) {
+        items = [];
 
-      for (i = 0; i < length; i++) {
+        for (i = 0; i < length; i++) {
         items[i] = messages[i].message;
-      }
+        }
 
-      return '<ul><li>' + items.join('</li><li>') + '</li></ul>';
+        return '<ul><li>' + items.join('</li><li>') + '</li></ul>';
     }
     ```
 
@@ -266,18 +265,18 @@
 
     ```javascript
     // anonymous function expression
-    var anonymous = function() {
-      return true;
+    var anonymous = function () {
+        return true;
     };
 
     // named function expression
-    var named = function named() {
-      return true;
+    var named = function named () {
+        return true;
     };
 
     // immediately-invoked function expression (IIFE)
-    (function() {
-      console.log('Welcome to the Internet. Please follow me.');
+    (function () {
+        console.log('Welcome to the Internet. Please follow me.');
     })();
     ```
 
@@ -287,17 +286,18 @@
     ```javascript
     // bad
     if (currentUser) {
-      function test() {
-        console.log('Nope.');
-      }
+        function test () {
+            console.log('Nope.');
+        }
     }
 
     // good
     var test;
+
     if (currentUser) {
-      test = function test() {
-        console.log('Yup.');
-      };
+        test = function test () {
+            console.log('Yup.');
+        };
     }
     ```
 
@@ -305,13 +305,13 @@
 
     ```javascript
     // bad
-    function nope(name, options, arguments) {
-      // ...stuff...
+    function nope (name, options, arguments) {
+        // ...stuff...
     }
 
     // good
-    function yup(name, options, args) {
-      // ...stuff...
+    function yup (name, options, args) {
+        // ...stuff...
     }
     ```
 
@@ -325,8 +325,8 @@
 
     ```javascript
     var luke = {
-      jedi: true,
-      age: 28
+        jedi: true,
+        age: 28
     };
 
     // bad
@@ -340,12 +340,12 @@
 
     ```javascript
     var luke = {
-      jedi: true,
-      age: 28
+        jedi: true,
+        age: 28
     };
 
-    function getProp(prop) {
-      return luke[prop];
+    function getProp (prop) {
+        return luke[prop];
     }
 
     var isJedi = getProp('jedi');
@@ -384,9 +384,9 @@
         dragonball = 'z';
 
     // good
-    var items = getItems();
+    var items        = getItems();
     var goSportsTeam = true;
-    var dragonball = 'z';
+    var dragonball   = 'z';
     ```
 
   - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
@@ -405,7 +405,7 @@
     var len;
 
     // good
-    var items = getItems();
+    var items        = getItems();
     var goSportsTeam = true;
     var dragonball;
     var length;
@@ -416,57 +416,57 @@
 
     ```javascript
     // bad
-    function() {
-      test();
-      console.log('doing stuff..');
+    function () {
+        test();
+        console.log('doing stuff..');
 
-      //..other stuff..
+        //..other stuff..
 
-      var name = getName();
+        var name = getName();
 
-      if (name === 'test') {
-        return false;
-      }
+        if (name === 'test') {
+            return false;
+        }
 
-      return name;
+        return name;
     }
 
     // good
-    function() {
-      var name = getName();
+    function () {
+        var name = getName();
 
-      test();
-      console.log('doing stuff..');
+        test();
+        console.log('doing stuff..');
 
-      //..other stuff..
+        //..other stuff..
 
-      if (name === 'test') {
-        return false;
-      }
+        if (name === 'test') {
+            return false;
+        }
 
-      return name;
+        return name;
     }
 
     // bad
-    function() {
-      var name = getName();
+    function () {
+        var name = getName();
 
-      if (!arguments.length) {
-        return false;
-      }
+        if (!arguments.length) {
+            return false;
+        }
 
-      return true;
+        return true;
     }
 
     // good
-    function() {
-      if (!arguments.length) {
-        return false;
-      }
+    function () {
+        if (!arguments.length) {
+            return false;
+        }
 
-      var name = getName();
+        var name = getName();
 
-      return true;
+        return true;
     }
     ```
 
@@ -480,87 +480,86 @@
     ```javascript
     // we know this wouldn't work (assuming there
     // is no notDefined global variable)
-    function example() {
-      console.log(notDefined); // => throws a ReferenceError
+    function example () {
+        console.log(notDefined); // => throws a ReferenceError
     }
 
     // creating a variable declaration after you
     // reference the variable will work due to
     // variable hoisting. Note: the assignment
     // value of `true` is not hoisted.
-    function example() {
-      console.log(declaredButNotAssigned); // => undefined
-      var declaredButNotAssigned = true;
+    function example () {
+        console.log(declaredButNotAssigned); // => undefined
+        var declaredButNotAssigned = true;
     }
 
     // The interpreter is hoisting the variable
     // declaration to the top of the scope,
     // which means our example could be rewritten as:
-    function example() {
-      var declaredButNotAssigned;
-      console.log(declaredButNotAssigned); // => undefined
-      declaredButNotAssigned = true;
+    function example () {
+        var declaredButNotAssigned;
+        console.log(declaredButNotAssigned); // => undefined
+        declaredButNotAssigned = true;
     }
     ```
 
   - Anonymous function expressions hoist their variable name, but not the function assignment.
 
     ```javascript
-    function example() {
-      console.log(anonymous); // => undefined
+    function example () {
+        console.log(anonymous); // => undefined
 
-      anonymous(); // => TypeError anonymous is not a function
+        anonymous(); // => TypeError anonymous is not a function
 
-      var anonymous = function() {
-        console.log('anonymous function expression');
-      };
+        var anonymous = function () {
+            console.log('anonymous function expression');
+        };
     }
     ```
 
   - Named function expressions hoist the variable name, not the function name or the function body.
 
     ```javascript
-    function example() {
-      console.log(named); // => undefined
+    function example () {
+        console.log(named); // => undefined
 
-      named(); // => TypeError named is not a function
+        named(); // => TypeError named is not a function
 
-      superPower(); // => ReferenceError superPower is not defined
+        superPower(); // => ReferenceError superPower is not defined
 
-      var named = function superPower() {
-        console.log('Flying');
-      };
+        var named = function superPower () {
+            console.log('Flying');
+        };
     }
 
     // the same is true when the function name
     // is the same as the variable name.
-    function example() {
-      console.log(named); // => undefined
+    function example () {
+        console.log(named); // => undefined
 
-      named(); // => TypeError named is not a function
+        named(); // => TypeError named is not a function
 
-      var named = function named() {
-        console.log('named');
-      }
+        var named = function named () {
+            console.log('named');
+        }
     }
     ```
 
   - Function declarations hoist their name and the function body.
 
     ```javascript
-    function example() {
-      superPower(); // => Flying
+    function example () {
+        superPower(); // => Flying
 
-      function superPower() {
-        console.log('Flying');
-      }
+        function superPower () {
+            console.log('Flying');
+        }
     }
     ```
 
   - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/).
 
 **[⬆ back to top](#table-of-contents)**
-
 
 
 ## Conditional Expressions & Equality
@@ -577,8 +576,8 @@
 
     ```javascript
     if ([0]) {
-      // true
-      // An array is an object, objects evaluate to true
+        // true
+        // An array is an object, objects evaluate to true
     }
     ```
 
@@ -587,22 +586,22 @@
     ```javascript
     // bad
     if (name !== '') {
-      // ...stuff...
+        // ...stuff...
     }
 
     // good
     if (name) {
-      // ...stuff...
+        // ...stuff...
     }
 
     // bad
     if (collection.length > 0) {
-      // ...stuff...
+        // ...stuff...
     }
 
     // good
     if (collection.length) {
-      // ...stuff...
+        // ...stuff...
     }
     ```
 
@@ -618,22 +617,22 @@
     ```javascript
     // bad
     if (test)
-      return false;
+        return false;
 
     // good
     if (test) return false;
 
     // good
     if (test) {
-      return false;
+        return false;
     }
 
     // bad
-    function() { return false; }
+    function () { return false; }
 
     // good
-    function() {
-      return false;
+    function () {
+        return false;
     }
     ```
 
@@ -651,7 +650,7 @@
     //
     // @param {String} tag
     // @return {Element} element
-    function make(tag) {
+    function make (tag) {
 
       // ...stuff...
 
@@ -666,7 +665,7 @@
      * @param {String} tag
      * @return {Element} element
      */
-    function make(tag) {
+    function make (tag) {
 
       // ...stuff...
 
@@ -685,22 +684,22 @@
     var active = true;
 
     // bad
-    function getType() {
-      console.log('fetching type...');
-      // set the default type to 'no type'
-      var type = this._type || 'no type';
+    function getType () {
+        console.log('fetching type...');
+        // set the default type to 'no type'
+        var type = this._type || 'no type';
 
-      return type;
+        return type;
     }
 
     // good
-    function getType() {
-      console.log('fetching type...');
+    function getType () {
+        console.log('fetching type...');
 
-      // set the default type to 'no type'
-      var type = this._type || 'no type';
+        // set the default type to 'no type'
+        var type = this._type || 'no type';
 
-      return type;
+        return type;
     }
     ```
 
@@ -709,24 +708,22 @@
   - Use `// FIXME:` to annotate problems.
 
     ```javascript
-    function Calculator() {
+    function Calculator () {
+        // FIXME: shouldn't use a global here
+        total = 0;
 
-      // FIXME: shouldn't use a global here
-      total = 0;
-
-      return this;
+        return this;
     }
     ```
 
   - Use `// TODO:` to annotate solutions to problems.
 
     ```javascript
-    function Calculator() {
+    function Calculator () {
+        // TODO: total should be configurable by an options param
+        this.total = 0;
 
-      // TODO: total should be configurable by an options param
-      this.total = 0;
-
-      return this;
+        return this;
     }
   ```
 
@@ -735,50 +732,9 @@
 
 ## Whitespace
 
-  - Use soft tabs set to 2 spaces.
-
-    ```javascript
-    // bad
-    function() {
-    ∙∙∙∙var name;
-    }
-
-    // bad
-    function() {
-    ∙var name;
-    }
-
-    // good
-    function() {
-    ∙∙var name;
-    }
-    ```
-
+  - Use 4 spaces
   - Place 1 space before the leading brace.
-
-    ```javascript
-    // bad
-    function test(){
-      console.log('test');
-    }
-
-    // good
-    function test() {
-      console.log('test');
-    }
-
-    // bad
-    dog.set('attr',{
-      age: '1 year',
-      breed: 'Bernese Mountain Dog'
-    });
-
-    // good
-    dog.set('attr', {
-      age: '1 year',
-      breed: 'Bernese Mountain Dog'
-    });
-    ```
+  - Place 1 space before open parentheses.
 
   - Set off operators with spaces.
 
@@ -790,30 +746,6 @@
     var x = y + 5;
     ```
 
-  - End files with a single newline character.
-
-    ```javascript
-    // bad
-    (function(global) {
-      // ...stuff...
-    })(this);
-    ```
-
-    ```javascript
-    // bad
-    (function(global) {
-      // ...stuff...
-    })(this);↵
-    ↵
-    ```
-
-    ```javascript
-    // good
-    (function(global) {
-      // ...stuff...
-    })(this);↵
-    ```
-
   - Use indentation when making long method chains. Use a leading dot, which
     emphasizes that the line is a method call, not a new statement.
 
@@ -823,22 +755,22 @@
 
     // bad
     $('#items').
-      find('selected').
-        highlight().
-        end().
-      find('.open').
-        updateCount();
+        find('selected').
+            highlight().
+            end().
+        find('.open').
+            updateCount();
 
     // good
     $('#items')
-      .find('.selected')
+        .find('.selected')
         .highlight()
         .end()
-      .find('.open')
+        .find('.open')
         .updateCount();
 
     // bad
-    var leds = stage.selectAll('.led').data(data).enter().append('svg:svg').class('led', true)
+    var leds = stage.selectAll('.led').data(data).enter().append('svg:svg').class('led', true)y
         .attr('width',  (radius + margin) * 2).append('svg:g')
         .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
         .call(tron.led);
@@ -846,10 +778,10 @@
     // good
     var leds = stage.selectAll('.led')
         .data(data)
-      .enter().append('svg:svg')
+        .enter().append('svg:svg')
         .class('led', true)
         .attr('width',  (radius + margin) * 2)
-      .append('svg:g')
+        .append('svg:g')
         .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
         .call(tron.led);
     ```
@@ -863,16 +795,16 @@
     ```javascript
     // bad
     var story = [
-        once
-      , upon
-      , aTime
+          once
+        , upon
+        , aTime
     ];
 
     // good
     var story = [
-      once,
-      upon,
-      aTime
+        once,
+        upon,
+        aTime
     ];
 
     // bad
@@ -885,10 +817,10 @@
 
     // good
     var hero = {
-      firstName: 'Bob',
-      lastName: 'Parr',
-      heroName: 'Mr. Incredible',
-      superPower: 'strength'
+        firstName: 'Bob',
+        lastName: 'Parr',
+        heroName: 'Mr. Incredible',
+        superPower: 'strength'
     };
     ```
 
@@ -899,24 +831,24 @@
     ```javascript
     // bad
     var hero = {
-      firstName: 'Kevin',
-      lastName: 'Flynn',
+        firstName: 'Kevin',
+        lastName: 'Flynn',
     };
 
     var heroes = [
-      'Batman',
-      'Superman',
+        'Batman',
+        'Superman',
     ];
 
     // good
     var hero = {
-      firstName: 'Kevin',
-      lastName: 'Flynn'
+        firstName: 'Kevin',
+        lastName: 'Flynn'
     };
 
     var heroes = [
-      'Batman',
-      'Superman'
+        'Batman',
+        'Superman'
     ];
     ```
 
@@ -929,21 +861,21 @@
 
     ```javascript
     // bad
-    (function() {
-      var name = 'Skywalker'
-      return name
+    (function () {
+        var name = 'Skywalker'
+        return name
     })()
 
     // good
-    (function() {
-      var name = 'Skywalker';
-      return name;
+    (function () {
+        var name = 'Skywalker';
+        return name;
     })();
 
     // good (guards against the function becoming an argument when two files with IIFEs are concatenated)
-    ;(function() {
-      var name = 'Skywalker';
-      return name;
+    ;(function () {
+        var name = 'Skywalker';
+        return name;
     })();
     ```
 
@@ -1041,12 +973,12 @@
 
     ```javascript
     // bad
-    function q() {
+    function q () {
       // ...stuff...
     }
 
     // good
-    function query() {
+    function query () {
       // ..stuff..
     }
     ```
@@ -1056,17 +988,22 @@
     ```javascript
     // bad
     var OBJEcttsssss = {};
+    
     var this_is_my_object = {};
-    function c() {}
+
+    function c () {}
+    
     var u = new user({
-      name: 'Bob Parr'
+        name: 'Bob Parr'
     });
 
     // good
     var thisIsMyObject = {};
-    function thisIsMyFunction() {}
+    
+    function thisIsMyFunction () {}
+    
     var user = new User({
-      name: 'Bob Parr'
+        name: 'Bob Parr'
     });
     ```
 
@@ -1074,21 +1011,21 @@
 
     ```javascript
     // bad
-    function user(options) {
-      this.name = options.name;
+    function user (options) {
+        this.name = options.name;
     }
 
     var bad = new user({
-      name: 'nope'
+        name: 'nope'
     });
 
     // good
-    function User(options) {
-      this.name = options.name;
+    function User (options) {
+        this.name = options.name;
     }
 
     var good = new User({
-      name: 'yup'
+        name: 'yup'
     });
     ```
 
@@ -1107,27 +1044,30 @@
 
     ```javascript
     // bad
-    function() {
-      var self = this;
-      return function() {
-        console.log(self);
-      };
+    function () {
+        var self = this;
+        
+        return function () {
+            console.log(self);
+        };
     }
 
     // bad
-    function() {
-      var that = this;
-      return function() {
-        console.log(that);
-      };
+    function () {
+        var that = this;
+
+        return function () {
+            console.log(that);
+        };
     }
 
     // good
-    function() {
-      var _this = this;
-      return function() {
-        console.log(_this);
-      };
+    function () {
+        var _this = this;
+
+        return function () {
+            console.log(_this);
+        };
     }
     ```
 
@@ -1135,13 +1075,13 @@
 
     ```javascript
     // bad
-    var log = function(msg) {
-      console.log(msg);
+    var log = function (msg) {
+        console.log(msg);
     };
 
     // good
-    var log = function log(msg) {
-      console.log(msg);
+    var log = function log (msg) {
+        console.log(msg);
     };
     ```
 
@@ -1174,30 +1114,31 @@
     ```javascript
     // bad
     if (!dragon.age()) {
-      return false;
+        return false;
     }
 
     // good
     if (!dragon.hasAge()) {
-      return false;
+        return false;
     }
     ```
 
   - It's okay to create get() and set() functions, but be consistent.
 
     ```javascript
-    function Jedi(options) {
-      options || (options = {});
-      var lightsaber = options.lightsaber || 'blue';
-      this.set('lightsaber', lightsaber);
+    function Jedi (options) {
+        options || (options = {});
+        var lightsaber = options.lightsaber || 'blue';
+        
+        this.set('lightsaber', lightsaber);
     }
 
-    Jedi.prototype.set = function(key, val) {
-      this[key] = val;
+    Jedi.prototype.set = function (key, val) {
+        this[key] = val;
     };
 
-    Jedi.prototype.get = function(key) {
-      return this[key];
+    Jedi.prototype.get = function (key) {
+        return this[key];
     };
     ```
 
@@ -1209,28 +1150,28 @@
   - Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
 
     ```javascript
-    function Jedi() {
-      console.log('new jedi');
+    function Jedi () {
+        console.log('new jedi');
     }
 
     // bad
     Jedi.prototype = {
-      fight: function fight() {
-        console.log('fighting');
-      },
+        fight: function fight () {
+            console.log('fighting');
+        },
 
-      block: function block() {
-        console.log('blocking');
-      }
+        block: function block () {
+            console.log('blocking');
+        }
     };
 
     // good
-    Jedi.prototype.fight = function fight() {
-      console.log('fighting');
+    Jedi.prototype.fight = function fight () {
+        console.log('fighting');
     };
 
-    Jedi.prototype.block = function block() {
-      console.log('blocking');
+    Jedi.prototype.block = function block () {
+        console.log('blocking');
     };
     ```
 
@@ -1238,34 +1179,38 @@
 
     ```javascript
     // bad
-    Jedi.prototype.jump = function() {
-      this.jumping = true;
-      return true;
+    Jedi.prototype.jump = function () {
+        this.jumping = true;
+        
+        return true;
     };
 
-    Jedi.prototype.setHeight = function(height) {
-      this.height = height;
+    Jedi.prototype.setHeight = function (height) {
+        this.height = height;
     };
 
     var luke = new Jedi();
+
     luke.jump(); // => true
     luke.setHeight(20); // => undefined
 
     // good
-    Jedi.prototype.jump = function() {
-      this.jumping = true;
-      return this;
+    Jedi.prototype.jump = function () {
+        this.jumping = true;
+        
+        return this;
     };
 
-    Jedi.prototype.setHeight = function(height) {
-      this.height = height;
-      return this;
+    Jedi.prototype.setHeight = function (height) {
+        this.height = height;
+        
+        return this;
     };
 
     var luke = new Jedi();
 
     luke.jump()
-      .setHeight(20);
+        .setHeight(20);
     ```
 
 
@@ -1273,16 +1218,16 @@
 
     ```javascript
     function Jedi(options) {
-      options || (options = {});
-      this.name = options.name || 'no name';
+        options || (options = {});
+        this.name = options.name || 'no name';
     }
 
-    Jedi.prototype.getName = function getName() {
-      return this.name;
+    Jedi.prototype.getName = function getName () {
+        return this.name;
     };
 
-    Jedi.prototype.toString = function toString() {
-      return 'Jedi - ' + this.getName();
+    Jedi.prototype.toString = function toString () {
+        return 'Jedi - ' + this.getName();
     };
     ```
 
@@ -1300,7 +1245,7 @@
     ...
 
     $(this).on('listingUpdated', function(e, listingId) {
-      // do something with listingId
+        // do something with listingId
     });
     ```
 
@@ -1313,7 +1258,7 @@
     ...
 
     $(this).on('listingUpdated', function(e, data) {
-      // do something with data.listingId
+        // do something with data.listingId
     });
     ```
 
@@ -1330,21 +1275,21 @@
     ```javascript
     // fancyInput/fancyInput.js
 
-    !function(global) {
-      'use strict';
+    !function (global) {
+        'use strict';
 
-      var previousFancyInput = global.FancyInput;
+        var previousFancyInput = global.FancyInput;
 
-      function FancyInput(options) {
-        this.options = options || {};
-      }
+        function FancyInput (options) {
+            this.options = options || {};
+        }
 
-      FancyInput.noConflict = function noConflict() {
-        global.FancyInput = previousFancyInput;
-        return FancyInput;
-      };
+        FancyInput.noConflict = function noConflict () {
+            global.FancyInput = previousFancyInput;
+            return FancyInput;
+        };
 
-      global.FancyInput = FancyInput;
+        global.FancyInput = FancyInput;
     }(this);
     ```
 
@@ -1368,25 +1313,26 @@
     ```javascript
     // bad
     function setSidebar() {
-      $('.sidebar').hide();
+        $('.sidebar').hide();
 
-      // ...stuff...
+        // ...stuff...
 
-      $('.sidebar').css({
-        'background-color': 'pink'
-      });
+        $('.sidebar').css({
+            'background-color': 'pink'
+        });
     }
 
     // good
     function setSidebar() {
-      var $sidebar = $('.sidebar');
-      $sidebar.hide();
+        var $sidebar = $('.sidebar');
+        
+        $sidebar.hide();
 
-      // ...stuff...
+        // ...stuff...
 
-      $sidebar.css({
-        'background-color': 'pink'
-      });
+        $sidebar.css({
+            'background-color': 'pink'
+        });
     }
     ```
 
@@ -1426,7 +1372,7 @@
 
     ```javascript
     function() {
-      return true;
+        return true;
     }
     ```
 
@@ -1613,5 +1559,3 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 **[⬆ back to top](#table-of-contents)**
-
-# };
